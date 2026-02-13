@@ -79,3 +79,12 @@
         transform: translateX(-50%);
     }
 }
+
+.whoweare{
+    background-color: #e8eefc;
+    height: 40rem;
+}
+.whoweare .img{
+    height: 35rem;
+    overflow: hidden;
+}

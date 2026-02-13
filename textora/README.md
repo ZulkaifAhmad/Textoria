@@ -1,16 +1,56 @@
-# React + Vite
+# 📚 Textoria
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> **Where Ideas Meet Simplicity.** > *Dive into Articles on Life.*
 
-Currently, two official plugins are available:
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📖 About The Project
 
-## React Compiler
+**Textoria** is a modern, responsive frontend blog interface designed for simplicity and readability. Built with React and styled with Tailwind CSS, it offers a clean user experience for browsing articles on life and creativity.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+This project focuses on client-side routing and a modular component architecture to create a seamless Single Page Application (SPA).
 
-## Expanding the ESLint configuration
+### ✨ Key Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* **SPA Navigation:** Smooth page transitions using React Router DOM.
+* **Modern Styling:** Rapid, utility-first styling with Tailwind CSS.
+* **Responsive Layout:** Fully optimized for mobile, tablet, and desktop screens.
+* **Component-Based:** Modular React architecture for easy maintenance.
+* **Clean Typography:** Designed for extended reading sessions.
+
+---
+
+## 🛠️ Built With
+
+* **[React.js](https://reactjs.org/)** - The library for web and native user interfaces.
+* **[Tailwind CSS](https://tailwindcss.com/)** - A utility-first CSS framework.
+* **[React Router DOM](https://reactrouter.com/)** - Client-side routing for React.
+
+---
+
+## 🚀 Getting Started
+
+To get a local copy of Textoria running on your machine, follow these simple steps.
+
+### Prerequisites
+
+* **Node.js** (v14 or higher recommended)
+* **npm** or **yarn**
+
+
+
+5.  Open your browser and navigate to `http://localhost:5173` (Vite) or `http://localhost:3000` (CRA) to see the app.
+
+
+
+## 📂 Project Structure
+
+```text
+src/
+├── assets/         # Images and static files
+├── components/     # Reusable UI components (Navbar, Cards, Footer)
+├── pages/          # Full page views (Home, Blog, About, Contact)
+├── App.jsx         # Main application component & Routes
+└── main.jsx        # Entry point
