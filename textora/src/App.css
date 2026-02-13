@@ -5,3 +5,77 @@
     color: #9859c7;
 
 }
+.count h1{
+    color: #9859c7;
+}
+.web-desing-p-text{
+    color: #9859c7;
+}
+.text-webdesign h1:hover{
+    color: #9859c7;
+}
+
+/* blogcard */
+
+.blogcardtext #cat{
+    color: #9859c7;
+}
+
+.ceo-message {
+    background-color: #e7eefc;
+}
+.mess-left , .mess-right{
+    /* background-color: #9859c7; */
+    height: 33rem;
+    
+}
+.mess-left .bg{
+    background: linear-gradient(to right , #ca58bd  , #8066d4);
+}
+
+.brand-marquee {
+    overflow: hidden;
+    width: 100%;
+    background-color: #e7eefc;
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+
+.brand-track {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: max-content;
+    animation: brand-scroll 28s linear infinite;
+}
+
+.brand-track:hover {
+    animation-play-state: paused;
+}
+
+.brand-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 999px;
+    padding: 10px 18px;
+    color: #374151;
+    font-weight: 500;
+    white-space: nowrap;
+    width: 20rem;
+}
+
+.brand-item img {
+    width: 10rem;
+    height: 5rem;
+    object-fit: contain;
+}
+
+@keyframes brand-scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
