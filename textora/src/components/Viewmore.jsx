@@ -1,5 +1,5 @@
-import React from 'react';
-import { MoveUpRight } from 'lucide-react';
+import React from "react";
+import { MoveUpRight } from "lucide-react";
 
 const ViewMoreCircle = ({ size = 120 }) => {
   return (
@@ -22,7 +22,7 @@ const ViewMoreCircle = ({ size = 120 }) => {
           />
           <text className="text-[11px] font-bold uppercase tracking-widest fill-white">
             <textPath xlinkHref="#circlePath" startOffset="0%">
-              View More  ✦  View More  ✦  View More  ✦
+              View More ✦ View More ✦ View More ✦
             </textPath>
           </text>
         </svg>

@@ -6,8 +6,10 @@ import Button from "../components/button";
 import ViewMoreCircle from "../components/Viewmore";
 import BlogCard from "../components/Blogcard";
 import PortfolioSection from "../components/recentVideos";
+import { useNavigate } from "react-router-dom"; 
 
 function Home() {
+  let navigate = useNavigate()
   const brands = [
     { name: "Figma", logo: "https://cdn.simpleicons.org/figma/111827" },
     { name: "Notion", logo: "https://cdn.simpleicons.org/notion/111827" },
@@ -19,7 +21,6 @@ function Home() {
 
   return (
     <div id="main" className="main mt-20 lg:mt-30">
-
       <div className="flex flex-col-reverse lg:flex-row">
         <div className="left w-full lg:w-4/6 h-full px-5 lg:px-11 pt-5 lg:pt-10">
           <UserReachBadge />
@@ -93,7 +94,9 @@ function Home() {
       <div className="featuredBlog px-5 lg:px-11 mt-20 lg:mt-25">
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-5 lg:gap-0">
           <h1 className="text-4xl lg:text-7xl font-semibold">Featured Blogs</h1>
+          <div onClick={()=> navigate("/blog")}>
           <Button text="See All Posts" />
+          </div>
         </div>
 
         <div className="design-parts mt-10 lg:mt-15 flex flex-col lg:flex-row gap-10 lg:gap-7">
@@ -189,7 +192,9 @@ function Home() {
       <div className="ourWork px-5 lg:px-11 pt-20">
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-5 lg:gap-0">
           <h1 className="text-4xl lg:text-6xl font-semibold">Our Works</h1>
+          <div onClick={()=> navigate("/work")}>
           <Button text={"See All Work"} />
+          </div>
         </div>
         <div className="ourwork-cards flex flex-wrap items-start gap-5">
           <div className="ourwork-card cursor-pointer flex flex-col gap-3 mt-10 w-full md:w-[calc(50%-10px)]">
@@ -397,9 +402,11 @@ function Home() {
         </div>
 
         <div className="recentVideos mt-30">
-        <h1 className="text-6xl font-semibold text-center mb-10">Recent Videos</h1>
-        <PortfolioSection />
-      </div>
+          <h1 className="text-6xl font-semibold text-center mb-10">
+            Recent Videos
+          </h1>
+          <PortfolioSection />
+        </div>
       </div>
     </div>
   );

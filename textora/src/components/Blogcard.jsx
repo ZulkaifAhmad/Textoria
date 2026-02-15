@@ -1,6 +1,6 @@
 import React from "react";
 import ViewMoreCircle from "./Viewmore";
-import "../App.css"
+import "../App.css";
 
 const BlogCard = ({ image, category, title, author, date }) => {
   return (

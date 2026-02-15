@@ -2,8 +2,10 @@ import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 import Button from '../components/button';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
+  let navigate = useNavigate()
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -60,7 +62,7 @@ const Header = () => {
             <NavLink to="/contact" className={navLinkClasses}>Contact Us</NavLink>
           </div>
 
-          <div className="hidden md:flex items-center">
+          <div onClick={()=> navigate("/contact")} className="hidden md:flex items-center">
             <Button text={"Get Started"}/>
           </div>
 
