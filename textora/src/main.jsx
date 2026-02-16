@@ -9,6 +9,7 @@ import Blog from './Pages/Blog.jsx'
 import Home from './Pages/Home.jsx'
 import About from './Pages/About.jsx'     
 import Outlit from './Layout/Outlit.jsx'
+import BlogDetails from './Pages/BlogDetails.jsx'
 
 let router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ let router = createBrowserRouter([
         path : "blog" ,
         element : <Blog />
       },
+      {
+        path : "blog/:id",
+        element : <BlogDetails />
+      }
     ]
   }
 ])

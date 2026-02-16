@@ -6,10 +6,14 @@ import Button from "../components/button";
 import ViewMoreCircle from "../components/Viewmore";
 import BlogCard from "../components/Blogcard";
 import PortfolioSection from "../components/recentVideos";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
+import {blog} from "../components/Articles";
 
 function Home() {
-  let navigate = useNavigate()
+  const finalBlogs = blog.slice(1, 2);
+  const finalBlogs2 = blog.slice(2, 3);
+  const blogs = blog.slice(3, 6);
+  let navigate = useNavigate();
   const brands = [
     { name: "Figma", logo: "https://cdn.simpleicons.org/figma/111827" },
     { name: "Notion", logo: "https://cdn.simpleicons.org/notion/111827" },
@@ -94,106 +98,102 @@ function Home() {
       <div className="featuredBlog px-5 lg:px-11 mt-20 lg:mt-25">
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-5 lg:gap-0">
           <h1 className="text-4xl lg:text-7xl font-semibold">Featured Blogs</h1>
-          <div onClick={()=> navigate("/blog")}>
-          <Button text="See All Posts" />
+          <div onClick={() => navigate("/blog")}>
+            <Button text="See All Posts" />
           </div>
         </div>
-
         <div className="design-parts mt-10 lg:mt-15 flex flex-col lg:flex-row gap-10 lg:gap-7">
-          <div className="webDesign cursor-pointer flex flex-col gap-4 w-full lg:w-1/2">
-            <div className="group relative h-64 lg:h-96 w-full overflow-hidden rounded-3xl bg-red-300">
-              <div className="absolute left-1/2 top-1/2 z-30 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-300 group-hover:opacity-110">
-                <ViewMoreCircle size={120} />
-              </div>
+          {finalBlogs.map((blog, index) => (
+            <div
+              key={index}
+              onClick={() => navigate(`/blog/${blog.slug}`)}
+              className="webDesign cursor-pointer flex flex-col gap-4 w-full lg:w-1/2"
+            >
+              <div className="group relative h-64 lg:h-96 w-full overflow-hidden rounded-3xl bg-red-300">
+                <div className="absolute left-1/2 top-1/2 z-30 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-300 group-hover:opacity-110">
+                  <ViewMoreCircle size={120} />
+                </div>
 
-              <img
-                src="/appdesign.png"
-                className="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-102 relative z-10"
-                alt="App Design"
-              />
-              <div className="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/20 z-20 pointer-events-none" />
-            </div>
-            <div className="text-webdesign flex flex-col gap-2">
-              <p className="web-desing-p-text text-lg font-semibold">
-                Web Design
-              </p>
-              <h1 className="text-xl lg:text-2xl tracking-wide font-semibold">
-                The Evolution of Web Design From Static to Dynamic
-              </h1>
-              <p className="text-base lg:text-lg text-gray-600">
-                Web design has evolved from static pages to dynamic, interactive
-                experiences. Modern sites adapt to users in real-time.
-              </p>
-              <div>
-                <p className="inline font-medium">By Alicon Atiqs </p>
-                <p className="inline ml-5 text-gray-700">Apr 20, 2025</p>
+                <img
+                  src={blog.image}
+                  className="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-102 relative z-10"
+                  alt={blog.title}
+                />
+                <div className="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/20 z-20 pointer-events-none" />
               </div>
-            </div>
-          </div>
-
-          <div className="webDesign cursor-pointer flex flex-col-reverse lg:flex-col gap-4 w-full lg:w-1/2">
-            <div className="text-webdesign flex flex-col gap-2">
-              <p className="web-desing-p-text text-lg font-semibold">
-                App Design
-              </p>
-              <h1 className="text-xl lg:text-2xl tracking-wide font-semibold">
-                Designing Apps That Delight: A Guide to Engaging Interfaces
-              </h1>
-              <p className="text-base lg:text-lg text-gray-600">
-                Delightful apps focus on user-friendly design, smooth
-                interactions, and visual appeal.
-              </p>
-              <div>
-                <p className="inline font-medium">By Leo Maddox </p>
-                <p className="inline ml-5 text-gray-700">Apr 20, 2025</p>
+              <div className="text-webdesign flex flex-col gap-2">
+                <p className="web-desing-p-text text-lg font-semibold">
+                  Web Design
+                </p>
+                <h1 className="text-xl lg:text-2xl tracking-wide font-semibold">
+                  {blog.title}
+                </h1>
+                <p className="text-base lg:text-lg line-clamp-2 text-gray-600">
+                  {blog.description}
+                </p>
+                <div>
+                  <p className="inline font-medium">By {blog.author} </p>
+                  <p className="inline ml-5 text-gray-700">{blog.date}</p>
+                </div>
               </div>
             </div>
-            <div className="group relative h-64 lg:h-96 w-full overflow-hidden rounded-3xl">
-              <div className="absolute left-1/2 top-1/2 z-30 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                <ViewMoreCircle size={120} />
+          ))}
+          {finalBlogs2.map((blog, index) => (
+            <div
+              onClick={() => navigate(`/blog/${blog.slug}`)}
+              className="webDesign cursor-pointer flex flex-col-reverse lg:flex-col gap-4 w-full lg:w-1/2"
+            >
+              <div className="text-webdesign flex flex-col gap-2">
+                <p className="web-desing-p-text text-lg font-semibold">
+                  App Design
+                </p>
+                <h1 className="text-xl lg:text-2xl tracking-wide font-semibold">
+                  {blog.title}
+                </h1>
+                <p className="text-base lg:text-lg line-clamp-2 text-gray-600">
+                  {blog.description}
+                </p>
+                <div>
+                  <p className="inline font-medium">By {blog.author} </p>
+                  <p className="inline ml-5 text-gray-700">{blog.date}</p>
+                </div>
               </div>
+              <div className="group relative h-64 lg:h-96 w-full overflow-hidden rounded-3xl">
+                <div className="absolute left-1/2 top-1/2 z-30 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  <ViewMoreCircle size={120} />
+                </div>
 
-              <img
-                src="/webdesign.avif"
-                className="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-102 relative z-10"
-                alt="App Design"
-              />
+                <img
+                  src={blog.image}
+                  className="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-102 relative z-10"
+                  alt={blog.title}
+                />
 
-              <div className="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/20 z-20 pointer-events-none" />
+                <div className="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/20 z-20 pointer-events-none" />
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
-
-      <div className="blogCards mt-20 px-5 lg:px-11 flex flex-col lg:flex-row justify-between gap-10 lg:gap-5 items-center">
-        <BlogCard
-          image="/branding.avif"
-          category="Branding"
-          title="Building a Strong Brand Identity Beyond The Logo"
-          author="Jane Austen"
-          date="Mar 17, 2025"
-        />
-        <BlogCard
-          image="/logo design.avif"
-          category="Logo Design"
-          title="The Science Behind a Perfect Logo Tips for Timeless"
-          author="Adolf Austen"
-          date="Mar 17, 2023"
-        />
-        <BlogCard
-          image="/graphics design.avif"
-          category="Graphics Design"
-          title=" Top 10 Graphic Design Trends to Watch This Year"
-          author="Jams Bond"
-          date="Feb 17, 2025"
-        />
-      </div>
+        <div  className="blogCards mt-20 px-5 lg:px-11 flex flex-col lg:flex-row justify-between gap-10 lg:gap-5 items-center">
+      {blogs.map((blog, index) => (
+          <BlogCard
+            slug={blog.slug}
+            key={index}
+            image={`${blog.image}`}
+            category={`${blog.category}`}
+            title={`${blog.title}`}
+            author={`${blog.author}`}
+            date={`${blog.date}`}
+          />
+      ))}
+        </div>
 
       <div className="ourWork px-5 lg:px-11 pt-20">
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-5 lg:gap-0">
           <h1 className="text-4xl lg:text-6xl font-semibold">Our Works</h1>
-          <div onClick={()=> navigate("/work")}>
-          <Button text={"See All Work"} />
+          <div onClick={() => navigate("/work")}>
+            <Button text={"See All Work"} />
           </div>
         </div>
         <div className="ourwork-cards flex flex-wrap items-start gap-5">
